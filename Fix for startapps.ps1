@@ -4,7 +4,7 @@ if (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 
 # Your script here
 
-$Notisblokk = Get-StartApps -Name Notepad
+$Notisblokk = Get-StartApps -Name *Application*
 If ($Notisblokk -eq $null)
     {
         Try {
@@ -19,8 +19,8 @@ else
     {
     If (!(Test-Path HKLM:\SOFTWARE\NORDR))
 	            {
-	                New-Item HKLM:\SOFTWARE\NORDR -Force
+	                New-Item HKLM:\SOFTWARE\*YourValueHere* -Force
 	            }
-                    New-ItemProperty -Path HKLM:\SOFTWARE\NORDR\ -Name "HP Bloatware Removal" -PropertyType string -Value "999" -Force
+                    New-ItemProperty -Path HKLM:\SOFTWARE\*YourValueHere*\ -Name "HP Bloatware Removal" -PropertyType string -Value "999" -Force
     }
 pause
