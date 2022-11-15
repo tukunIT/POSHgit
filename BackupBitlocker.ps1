@@ -1,5 +1,5 @@
 Import-Module ActiveDirectory 
-Get-ADComputer -Filter 'ObjectClass -eq "computer"' -SearchBase "OU=Computers,OU=104180,OU=Customers,OU=TCNOSL,OU=ASP,DC=N10,DC=tconet,DC=net" | foreach-object { 
+Get-ADComputer -Filter 'ObjectClass -eq "computer"' -SearchBase "OU PATH" | foreach-object { 
 $Computer = $_.name
 
 #Check if the Computer Object exists 
@@ -23,5 +23,5 @@ $strToReport = $Computer + "," + $BitLocker_Key
 Write-Host $strToReport 
 
 #Save to Report 
-$strToReport | Out-File C:\BitlockerRecoveryReport104180.txt -append 
+$strToReport | Out-File C:\BitlockerRecoveryReport.txt -append 
 }
